@@ -25,7 +25,7 @@ user_input = raw_input("Enter Angle:")
 mynumber=user_input
 
 try:
-    number = int(user_input)
+    number = int(user_input) # prints answer based off of user input
 except ValueError:
     print 'Exception Happened'
 print eq(number)
