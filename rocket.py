@@ -13,7 +13,7 @@ print(eq)
 print(eq(2))
 
 
-x2 = np.arange(-40, 90) # gives a range for angles
+x2 = np.arange(-40, 90) # gives a range for the angles
 yfit = np.polyval(result, x2)
 print(yfit)
 plt.plot(x, y, label='Point')
