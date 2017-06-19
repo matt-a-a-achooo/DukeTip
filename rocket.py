@@ -27,6 +27,6 @@ mynumber=user_input
 try:
     number = int(user_input) # prints answer based off of user input
 except ValueError:
-    print 'Exception Happened'
+    print 'Exception Happened' #just in case user_input is not an integer
 print eq(number)
 
