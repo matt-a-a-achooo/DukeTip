@@ -1,7 +1,0 @@
-import numpy
-my_list = ["duketip", "intelligence", "umbrella", "pizza", "matthew", "chicken", "knife"]
-
-
-word = numpy.random.choice(my_list)
-
-print word
