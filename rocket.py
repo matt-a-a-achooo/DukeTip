@@ -20,7 +20,7 @@ plt.plot(x, y, label='Point')
 plt.plot(x2, yfit, label='Fit')
 plt.show()
 
-user_input = raw_input("Enter Angle:")
+user_input = raw_input("Enter Angle:") # asks user for an angle
 
 mynumber=user_input
 
