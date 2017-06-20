@@ -1,4 +1,4 @@
-import numpy as np
+import array as np
 import matplotlib.pyplot as plt
 
 
@@ -18,7 +18,7 @@ yfit = np.polyval(result, x2)
 print(yfit)
 plt.plot(x, y, label='Point')
 plt.plot(x2, yfit, label='Fit')
-plt.show() #graphs
+
 
 user_input = raw_input("Enter Angle:") # asks user for an angle
 

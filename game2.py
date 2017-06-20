@@ -1,5 +1,6 @@
 from __future__ import print_function
-import numpy
+import array
+
 
 def printHangman(numberWrong):
     # Prints the hangman
@@ -45,12 +46,12 @@ def printBlanks(word, correctLetters):
     print()
     return solved
 
-my_list = ["tiger", "noodle", "chicken", "matthew", "duketip", "intelligent", "pizza", "croissant", "coding", "python", "knack", "sacrilegious", "eczema", "rhythm", "ecstasy", "pronunciation"]# Define a list of words as options
+my_list = ["tiger", "noodle", "chicken", "matthew", "duketip", "intelligent", "pizza", "croissant", "coding", "python", "knack", "sacrilegious", "eczema", "rhythm", "ecstasy", "pronunciation", "history", "neuroscience", "asian", "spider", "pirate", "mouse", "notebook"]# Define a list of words as options
 correctLetters = [ ] #makes a list for the correctLetters
 numberWrong = 0 # counts number of incorrect guesses
 
 
-word = numpy.random.choice(my_list) #pciks a random word from my_list
+word = array.random.choice(my_list) #pciks a random word from my_list
 # Repeat forever, we'll use a break to get out
 while True:
     # Print the Status of the Hangman

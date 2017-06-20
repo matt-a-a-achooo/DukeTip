@@ -1,4 +1,4 @@
-import numpy as np
+import array as np
 
 word_list = ['maanav', 'meele', 'lambda', 'person', 'wyvern']
 
