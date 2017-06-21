@@ -22,7 +22,7 @@ def findSimilar(iLike, userLikes):
     # Print the max similarity number (most times this is something like 0.17
 
     # Return the index of the user which is the best match
-    return maxIndex
+    return
 
 
 def printMovie(id):
@@ -65,26 +65,26 @@ def processLikes(iLike):
 
 # Load Data
 # Load the movie names data (u.item) with just columns 0 and 1 (id and name) id is np.int, name is S128
-movieNames = np.loadtxt('.ml-100k/u.item',
+movieNames = np.loadtxt('C:/Users/matth/DukeTip/ml-100k/u.item',
                         delimiter='|', usecols=(0,1),
                         dtype={'names':( 'id', 'name'),
-                                'formats': (np.int, 'S128')}
+                               'formats': (np.int, 'S128')}
                         )
 
 
 print(movieNames)
 print(movieNames['id'])
 print(movieNames['name'])
-exit(0)
+
                                                           # replace 0 with the correct code to load the movie names
 
 # Create a dictionary with the ids as keys and the names as the values
 movieDict = dict(zip(movieNames['id'], movieNames['name']))  # replace 0 with the code to make the dict
 # Load the movie Data (u.data) with just columns 0, 1, and 2 (user, movie, rating) all are np.int
-movieData = np.loadtxt('./ml-100k/u.data',
-                       delimiter='\t', usecols=(0,1,2),
-                       dtype={'names:': ('user', 'movie', 'rating'),
-                               'formats': (np.int, 'int', 'i4')}
+movieData = np.loadtxt('./u.data',
+                       delimiter="\t", usecols=(0,1,2),
+                       dtype={'names': ('user', 'movie', 'rating'),
+                              'formats': (np.int, np.int, np.int)}
                        )
 
 
@@ -105,23 +105,6 @@ print(movieDict)
 
 
 
-
-
-
-
-for i in range(0,2):
-    key = productTotalPurchasesSorted[i][0]
-    print(str(i+1)+". Product: "+str(productDict[key])+
-    " Purchases: "+str(productTotalPurchasesSorted[i][1])
-    " Purchase Count:"+str(productPurchasesCount[key]))
-
-print ""
-
-productsPrinted = 0
-i = 0
-while productsPrinted < 100
-    key = productTotalPurchasesSorted[i][0]
-
 # Compute average rating per movie
 # This is non-ideal, pandas, scipy, or graphlib should be used here
 
@@ -137,12 +120,14 @@ movieRatingCount = {}  # replace 0 with code for an empty dictionary
 
 # Using numpy place the average rating for each movie in movieRating and the total number of ratings in movieRatingCount
 # Note: You will need a for loop to get each dictionary key
+print(movieData)
+print(movieDict)
 
 # Get sorting ratings
-for movieRating in movieData:
-    if movieRating['movieRating'] not in movieRatingTemp:
-        movieRatingTemp[movieRating['movieRating']] = []
-    movieRatingTemp[movieRating['movieRating']].append(movieRating['rating'])
+for rating in movieData:
+    if rating['movie'] not in movieRatingTemp:
+        movieRatingTemp[rating['movie']] = []
+    movieRatingTemp[movieRating['movie']].append(movieRating['rating'])
 
 print(movieRatingTemp)
 
@@ -155,12 +140,22 @@ for key in movieRatingTemp:
 print(movieTotalRatings)
 print(movieRatingCount)
 
-
 # https://www.saltycrane.com/blog/2007/09/how-to-sort-python-dictionary-by-keys/
 movieRatingS = sorted(movieRating.iteritems(), key=lambda (k, v): (v, k), reverse=True)
 
+print (movieTotalRatings)
 # Top 10 Movies
 print("Top Ten Movies:")
+for i in range(0,10):
+    key = movieTotalRatings[i][0]
+    print(str(i+1)+". Movie: "+str(movieDict[key])+
+    " Rating: "+str(movieTotalRatings[i][1])+
+    " Total Ratings: "+str(movieRatingCount[key]))
+
+print("")
+
+
+
 # Print the top 10 movies
 # It should print the number, title, id, rating and count of reviews for each movie
 # ie 2. Someone Else's America (1995) (ID: 1599) Rating: 5.0 Count: 1
@@ -168,13 +163,26 @@ print("Top Ten Movies:")
 
 # Top 10 Movies with at least 100 ratings
 print("\n\nTop Ten movies with at least 100 ratings:")
+
+moviesPrinted = 0
+i = 0
+while moviesPrinted > 100:
+    key = movieTotalRatings[i][0]
+    if movieTotalRatings[key] >= 100:
+        print(str(i+1)+" .Movie: "+str(movieDict[key])+
+            " Movies: "+str(movieTotalRatings[i][1])+
+            " Movie Count: "+str(movieRatingCount[key]))
+    i += 1
+
+
+
 # It should print the same thing, but this time all the movies should have over 100 ratings
 # The number should be the movie's absolute rank
 # ie (16. Close Shave, A (1995) (ID: 408) Rating: 4.49 Count: 112)
 # Number 16 is first in this list because it's the first movie with over 100 ratings
 
 
-exit(0)  # Remove this line after we finish phase 2
+ # Remove this line after we finish phase 2
 
 ########################################################
 # Begin Phase 3
