@@ -51,7 +51,7 @@ correctLetters = [ ] #makes a list for the correctLetters
 numberWrong = 0 # counts number of incorrect guesses
 
 
-word = array.random.choice(my_list) #pciks a random word from my_list
+word = array.random.choice(my_list) #picks a random word from my_list
 # Repeat forever, we'll use a break to get out
 while True:
     # Print the Status of the Hangman
