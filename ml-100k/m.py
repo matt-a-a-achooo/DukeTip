@@ -22,7 +22,7 @@ def findSimilar(iLike, userLikes):
     # Print the max similarity number (most times this is something like 0.17
 
     # Return the index of the user which is the best match
-    return
+    return maxIndex
 
 
 def printMovie(id):
@@ -176,12 +176,48 @@ while moviesPrinted < 10:
 # ie (16. Close Shave, A (1995) (ID: 408) Rating: 4.49 Count: 112)
 # Number 16 is first in this list because it's the first movie with over 100 ratings
 
-exit(0);
  # Remove this line after we finish phase 2
 
-########################################################
-# Begin Phase 3
-########################################################
+
+
+
+#Phase 3
+
+
+print(movieData['user'].max())
+print(np.max(movieData['user']))
+
+myArray = np.zeros((4,5))
+myArray[1,2] = 1
+print(myArray)
+
+for i in range(0,3):
+    myArray[i,2] = 1
+
+iLike = [4 , 2]
+userLikes = np.zeros(5)
+print(userLikes)
+
+for id in iLike:
+    userLikes[id] = 1
+
+print("")
+userLikes2 = myArray * userLikes
+#.max
+#argmax
+#argwhere
+b = np.argwhere(myArray[1.:]) == 1
+print(list.b())
+#similarityand and divided similarityor
+
+
+
+
+
+
+commonLikes = myArray * userLikes
+print(commonLikes.sum(axis=1))
+
 
 # Create a user likes numpy ndarray so we can use Jaccard Similarity
 # A user "likes" a movie if they rated it a 4 or 5
@@ -229,13 +265,12 @@ processLikes(iLike)
 # You can just assume they have a list of movies somewhere so they already know what numbers to type in.
 # If you'd like to give them options though, that would be a cool bonus project if you finish early.
 
-
-
-
-
-
-
-
+recommend = raw_input=('Would you like some recommendations based on yout interests? (y/n)')
+print(recommend)
+if recommend == "y":
+    print('Please pick a number 1-1682 or leave a blank and press enter to stop: ')
+else:
+    print('k')   #WIP
 
 
 
