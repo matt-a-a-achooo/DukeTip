@@ -72,10 +72,6 @@ movieNames = np.loadtxt('C:/Users/matth/DukeTip/ml-100k/u.item',
                         )
 
 
-print(movieNames)
-print(movieNames['id'])
-print(movieNames['name'])
-
                                                           # replace 0 with the correct code to load the movie names
 
 # Create a dictionary with the ids as keys and the names as the values
@@ -91,9 +87,6 @@ movieData = np.loadtxt('./u.data',
 
 # replace 0 with the correct cod eto load the movie data
 
-print(movieData)
-print(movieNames)
-print(movieDict)
 
 
 
@@ -109,7 +102,7 @@ print(movieDict)
 # This is non-ideal, pandas, scipy, or graphlib should be used here
 
 # Create a dictionary to hold our temporary ratings
-movieRatingTemp = ()  # replace 0 with code for an empty dictionary
+movieRatingTemp = {}  # replace 0 with code for an empty dictionary
 
 # For every row in the movie data, add the rating to a list in the dictionary entry
 # for that movies ID (don't forget to initialize the dictionary entry)
@@ -120,37 +113,38 @@ movieRatingCount = {}  # replace 0 with code for an empty dictionary
 
 # Using numpy place the average rating for each movie in movieRating and the total number of ratings in movieRatingCount
 # Note: You will need a for loop to get each dictionary key
-print(movieData)
-print(movieDict)
+
 
 # Get sorting ratings
-for rating in movieData:
-    if rating['movie'] not in movieRatingTemp:
-        movieRatingTemp[rating['movie']] = []
-    movieRatingTemp[movieRating['movie']].append(movieRating['rating'])
+for row in movieData:
+    if row['movie'] not in movieRatingTemp:
+        movieRatingTemp[row['movie']] = []
+    movieRatingTemp[row['movie']].append(row['rating'])
 
-print(movieRatingTemp)
+
 
 movieTotalRatings = {}
 
+
+
 for key in movieRatingTemp:
-    movieTotalRatings[key] = np.sum(movieRatingTemp[key])
+    movieRating[key] = np.mean(movieRatingTemp[key])
     movieRatingCount[key] = len(movieRatingTemp[key])
 
-print(movieTotalRatings)
-print(movieRatingCount)
+#
 
 # https://www.saltycrane.com/blog/2007/09/how-to-sort-python-dictionary-by-keys/
 movieRatingS = sorted(movieRating.iteritems(), key=lambda (k, v): (v, k), reverse=True)
 
-print (movieTotalRatings)
+
 # Top 10 Movies
 print("Top Ten Movies:")
-for i in range(0,10):
-    key = movieTotalRatings[i][0]
-    print(str(i+1)+". Movie: "+str(movieDict[key])+
-    " Rating: "+str(movieTotalRatings[i][1])+
-    " Total Ratings: "+str(movieRatingCount[key]))
+for i in range(0,11):
+    print("Movie ID: " + str(movieRatingS[i][0]) + " Rating: "+
+        str(movieRatingS[i][1]))
+    print(movieDict[movieRatingS[i][0]])
+    print(" Count: " + str(movieRatingCount[movieRatingS[i][0]]))
+    print(movieRatingS[0][0])
 
 print("")
 
@@ -166,12 +160,13 @@ print("\n\nTop Ten movies with at least 100 ratings:")
 
 moviesPrinted = 0
 i = 0
-while moviesPrinted > 100:
-    key = movieTotalRatings[i][0]
-    if movieTotalRatings[key] >= 100:
-        print(str(i+1)+" .Movie: "+str(movieDict[key])+
-            " Movies: "+str(movieTotalRatings[i][1])+
-            " Movie Count: "+str(movieRatingCount[key]))
+while moviesPrinted < 10:
+    key = movieRatingS[i][0]
+    if movieRatingCount[key] >= 100:
+        moviesPrinted += 1
+        print(str(i+1)+" Movie: "+str(movieDict[key])+
+        " Rating: "+str(movieRatingS[i][1]),
+        " Count: "+str(movieRatingCount[key]))
     i += 1
 
 
@@ -181,7 +176,7 @@ while moviesPrinted > 100:
 # ie (16. Close Shave, A (1995) (ID: 408) Rating: 4.49 Count: 112)
 # Number 16 is first in this list because it's the first movie with over 100 ratings
 
-
+exit(0);
  # Remove this line after we finish phase 2
 
 ########################################################
