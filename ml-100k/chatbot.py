@@ -1,35 +1,32 @@
 from __future__ import print_function
 import numpy as np
-
-
-def findSimilar(iLike, userLikes):
-    # Create an And similarity
-    similarityAnd = 0  # replace 0 with the correct code
-    # Create a per user sum
-    similaritySum = 0  # replace 0 with the correct code
-    # Create an Or similarity
-    userSimilarityOr = 0  # replace 0 with the correct code
-
-    # Calculate the similarity
-    userSimilarity = 0  # replace 0 with the correct code to calculate the Jaccard Index for each user
-
-    # Make the most similar user has a new like that the previous user did not have
-    # I used a while loop.
-        # You can "get rid" of a user that is most similar, but doesn't have any new likes
-    userSimilarity == 0# by setting the userSimilarity for them to 0
-    # When you get the index, save it in the variable maxIndex
-
-    # Print the max similarity number (most times this is something like 0.17
-
-    # Return the index of the user which is the best match
-    return maxIndex
-
-
 def printMovie(id):
     # Print the id of the movie and the name.  This should look something like
     # "    - 430: Duck Soup (1933)" if the id is 430 and the name is Duck Soup (1933)
     print(0)  # replace 0 with the correct code
 
+    # Create an And similarity
+    similarityAnd = np.logical_and(iLike, userLikes)  # replace 0 with the correct code
+    # Create a per user sum (this is the numerator of the jaccard index)
+
+    similarityAndSum = np.sum(userLikes)  # replace 0 with the correct code    def findSimilar(iLike, userLikes):
+
+    # Create an Or similarity
+    userSimilarityOr = np.logical_or(iLike, userLikes)  # replace 0 with the correct code
+
+    # Calculate the similarity
+    userSimilarity = 0    #id of a user that is most similar, but doesn't have any new likes
+    userSimilarity = 0# by setting the userSimilarity for them to 0
+    # When you get the index, save it in the variable maxIndex
+
+    # Print the max similarity number (most times this is something like 0.17
+    0  # replace 0 with the correct code to calculate the Jaccard Index for each user
+
+    # Make the most similar user has a new like that the previous user did not have
+    # I used a while loop.
+    # You can "get r
+    # Return the index of the user which is the best match
+    return
 
 
 def processLikes(iLike):
@@ -171,6 +168,9 @@ while moviesPrinted < 10:
 
 
 
+
+
+
 # It should print the same thing, but this time all the movies should have over 100 ratings
 # The number should be the movie's absolute rank
 # ie (16. Close Shave, A (1995) (ID: 408) Rating: 4.49 Count: 112)
@@ -184,47 +184,65 @@ while moviesPrinted < 10:
 #Phase 3
 
 
-print(movieData['user'].max())
-print(np.max(movieData['user']))
-
-myArray = np.zeros((4,5))
-myArray[1,2] = 1
-print(myArray)
-
-for i in range(0,3):
-    myArray[i,2] = 1
-
-iLike = [4 , 2]
-userLikes = np.zeros(5)
-print(userLikes)
-
-for id in iLike:
-    userLikes[id] = 1
-
-print("")
-userLikes2 = myArray * userLikes
-#.max
-#argmax
-#argwhere
-b = np.argwhere(myArray[1.:]) == 1
-print(list.b())
 #similarityand and divided similarityor
 
 
+userLikes = np.zeros((4,5))
+print(userLikes)
+
+for i in range(0,3):
+    userLikes[i, 2] = 1
+    userLikes[i, 3] = 1
 
 
+userLikes[3, :] = 1
+print(movieData['user'].max())
+print(np.max(movieData['user']))
 
 
-commonLikes = myArray * userLikes
-print(commonLikes.sum(axis=1))
+iLike = [4 , 2]
+iLikeNp = np.zeros(5)
 
+
+for id in iLike:
+    iLikeNp[id] = 1
+
+userLikesCount = userLikes.sum(axis=1)
+print(userLikes)
+
+print(iLikeNp.sum())
+
+commonLikes = userLikes * iLikeNp
+userAnd = commonLikes.sum(axis=1)
+print(userAnd)
+print(userAnd.argmax())
+list = np.argwhere(userLikes[1, :] == 1)
+
+print(list.flatten())
 
 # Create a user likes numpy ndarray so we can use Jaccard Similarity
 # A user "likes" a movie if they rated it a 4 or 5
 # Create a numpy ndarray of zeros with demensions of max user id + 1 and max movie + 1 (because we'll use them as 1 indexed not zero indexed)
 
 # Find the max movie ID + 1
-maxMovie = 0  # replace 0 with the correct code
+maxMovie = 5
+userLikes = [
+    [0, 0, 1, 1, 0],
+    [0, 1, 0, 1, 0],
+    [1, 1, 1, 1, 1],
+    [0, 0, 1, 1, 0]
+]
+iLike = [2, 4]
+for id in iLike:
+    print(id)
+
+iLikeNp = np.zeros(maxMovie)
+print(iLikeNp)
+print(iLikeNp * userLikes)
+
+exit(0)
+
+# replace 0 with the correct code
 
 # Find the max user Id + 1
 maxUser = 0  # replace 0 with the correct code
@@ -265,12 +283,13 @@ processLikes(iLike)
 # You can just assume they have a list of movies somewhere so they already know what numbers to type in.
 # If you'd like to give them options though, that would be a cool bonus project if you finish early.
 
-recommend = raw_input=('Would you like some recommendations based on yout interests? (y/n)')
-print(recommend)
-if recommend == "y":
-    print('Please pick a number 1-1682 or leave a blank and press enter to stop: ')
-else:
-    print('k')   #WIP
+recommend = raw_input('Would you like some recommendations based on your interests: (y/n)')
+if recommend == 'y': #WIP
+
+
+
+
+
 
 
 
