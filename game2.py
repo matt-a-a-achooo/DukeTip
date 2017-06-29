@@ -47,7 +47,7 @@ def printBlanks(word, correctLetters):
     print()
     return solved
 
-my_list = ["tiger", "noodle", "chicken", "matthew", "duketip", "intelligent", "pizza", "croissant", "coding", "python", "knack", "sacrilegious", "eczema", "rhythm", "ecstasy", "pronunciation", "history", "neuroscience", "asian", "spider", "pirate", "mouse", "notebook"]# Define a list of words as options
+my_list = ["tiger", "noodle", "chicken", "matthew", "duketip", "intelligent", "pizza", "croissant", "coding", "python", "knack", "sacrilegious", "eczema", "rhythm", "ecstasy", "pronunciation", "history", "neuroscience", "asian", "spider", "pirate", "mouse", "notebook", "pralena", ]# Define a list of words as options
 correctLetters = [ ] #makes a list for the correctLetters
 numberWrong = 0 # counts number of incorrect guesses
 
@@ -80,4 +80,4 @@ while True:
         numberWrong = numberWrong + 1# If it's wrong, increment the wrong count and let them know it was wrong - Loren
     print()
 
-print ("The word was " + word)# Reveals word
+print ("The word was " + word + "!")# Reveals word
