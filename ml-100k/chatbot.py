@@ -271,8 +271,14 @@ while True:
             elif movieInt < 1 or movieInt > maxMovie:
                 print("Invalid Selection")
                 continue
-            else:f
+            else:
                 iLike.append(movieInt)
+            if len(iLike) > 0:
+                proceesLikes(iLike)
+            else:
+                print("Sorry, you didn't enter any movies you like, so we couldn't make any suggestions.")
+
+
             if answer == 'done':
                 break
             else:
